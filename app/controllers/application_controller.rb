@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  beforo_action :basic_auth
+  before_action :basic_auth
 
   private
 
