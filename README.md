@@ -19,18 +19,18 @@
 
 ## itemsテーブル
 
-| Column             | Type       | Option      |
-| ------------------ | ---------- | ----------- |
-| title              | string     | null: false |
-| category           | integer    | null: false |
-| text               | text       | null: false |
-| price              | integer    | null: false |
-| user_id            | references |             |
-| delivery_fee       | integer    | null: false |
-| ship_from_location | integer    | null: false |
-| shipping_date      | integer    | null: false |
-| item_status        | integer    | null: false |
-| favorite           | integer    |             |
+| Column                | Type       | Option      |
+| --------------------- | ---------- | ----------- |
+| title                 | string     | null: false |
+| category_id           | integer    | null: false |
+| text                  | text       | null: false |
+| price                 | integer    | null: false |
+| user                  | references |             |
+| delivery_fee          | integer    | null: false |
+| ship_from_location_id | integer    | null: false |
+| shipping_date_id      | integer    | null: false |
+| item_status_id        | integer    | null: false |
+| favorite              | integer    |             |
 
 ### Association
 - belongs_to :user
@@ -56,24 +56,22 @@
 | postal                 | integer | null: false |
 | prefecture             | string  | null: false |
 | municipalities         | string  | null: false |
-| address                | integer | null: false |
+| address                | string  | null: false |
 | building               | string  |             |
-| telephone_number       | integer | null: false |
+| telephone_number       | string  | null: false |
 
 ### Association
-- belongs_to :item
-- belongs_to :user
 - belongs_to :purchaser
 
 ## purchaserテーブル
 
 | Column                | Type       |
 | --------------------- | ---------- |
-| user_id               | references |
-| item_id               | references |
-| receiver's_address_id | references |
+| user                  | references |
+| item                  | references |
+| receiver's_address    | references |
 
 ### Association
 - belongs_to :item
 - belongs_to :user
-- belongs_to :receiver's_address
+- has_one :receiver's_address
