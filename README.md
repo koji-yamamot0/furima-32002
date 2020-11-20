@@ -1,14 +1,16 @@
 
 ## usersテーブル
 
-| Column    | Type    | Option      |
-| --------- | --------| ----------- |
-| nickname  | string  | null: false |
-| email     | string  | null: false |
-| password  | string  | null: false |
-| name      | string  | null: false |
-| kana_name | string  | null: false |
-| birthday  | integer | null: false |
+| Column              | Type    | Option      |
+| ------------------- | --------| ----------- |
+| nickname            | string  | null: false |
+| email               | string  | null: false |
+| encrypted_password  | string  | null: false |
+| family_name         | string  | null: false |
+| first_name          | string  | null: false |
+| kana_family_name    | string  | null: false |
+| kana_first_name     | string  | null: false |
+| birthday            | date    | null: false |
 
 ### Association
 - has_many :items
@@ -20,14 +22,15 @@
 | Column             | Type       | Option      |
 | ------------------ | ---------- | ----------- |
 | title              | string     | null: false |
-| category           | string     | null: false |
+| category           | integer    | null: false |
 | text               | text       | null: false |
 | price              | integer    | null: false |
-| user               | references |             |
+| user_id            | references |             |
 | delivery_fee       | integer    | null: false |
-| ship_from_location | string     | null: false |
+| ship_from_location | integer    | null: false |
 | shipping_date      | integer    | null: false |
-| favorite           | integer    | null: false |
+| item_status        | integer    | null: false |
+| favorite           | integer    |             |
 
 ### Association
 - belongs_to :user
@@ -46,13 +49,10 @@
 - belongs_to :user
 - belongs_to :item
 
-## purchasersテーブル
+## receiver's_addressesテーブル
 
 | Column                 | Type    | Option      |
 | ---------------------- | ------- | ----------- |
-| credit_card_number     | integer | null: false |
-| credit_card_expiration | integer | null: false |
-| credit_card_code       | integer | null: false |
 | postal                 | integer | null: false |
 | prefecture             | string  | null: false |
 | municipalities         | string  | null: false |
@@ -63,3 +63,17 @@
 ### Association
 - belongs_to :item
 - belongs_to :user
+- belongs_to :purchaser
+
+## purchaserテーブル
+
+| Column                | Type       |
+| --------------------- | ---------- |
+| user_id               | references |
+| item_id               | references |
+| receiver's_address_id | references |
+
+### Association
+- belongs_to :item
+- belongs_to :user
+- belongs_to :receiver's_address
