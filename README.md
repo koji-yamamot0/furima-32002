@@ -49,7 +49,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## receiver's_addressesテーブル
+## destinationテーブル
 
 | Column           | Type       | Option            |
 | ---------------- | ---------- | ----------------- |
@@ -74,4 +74,4 @@
 ### Association
 - belongs_to :item
 - belongs_to :user
-- has_one :receiver's_address
+- has_one :destination
