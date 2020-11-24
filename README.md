@@ -8,8 +8,8 @@
 | encrypted_password  | string  | null: false |
 | family_name         | string  | null: false |
 | first_name          | string  | null: false |
-| kana_family_name    | string  | null: false |
-| kana_first_name     | string  | null: false |
+| kana_family         | string  | null: false |
+| kana_first          | string  | null: false |
 | birthday            | date    | null: false |
 
 ### Association
