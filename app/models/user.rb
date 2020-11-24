@@ -4,7 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname,         presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :birthday
+  end
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: VALID_PASSWORD_REGEX, message: 'は英字と数字を含む必要があります'
@@ -18,5 +21,4 @@ class User < ApplicationRecord
     validates :kana_family
     validates :kana_first
   end
-  validates :birthday,         presence: true
 end
