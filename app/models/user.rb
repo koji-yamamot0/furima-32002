@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname,         presence: true
-  validates_format_of :email , with: /@+/, message: "には@を入れてください"
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: VALID_PASSWORD_REGEX, message: 'は英字と数字を含む必要があります'

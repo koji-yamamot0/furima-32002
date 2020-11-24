@@ -31,7 +31,7 @@ describe User do
       it "emailに@が無ければ登録できない" do
         @user.email = "aaaaa"
         @user.valid?
-        expect(@user.errors.full_messages).to include "Email is invalid", "Email には@を入れてください"
+        expect(@user.errors.full_messages).to include "Email is invalid"
       end
       it "passwordが空だと登録できない" do
         @user.password = ""
