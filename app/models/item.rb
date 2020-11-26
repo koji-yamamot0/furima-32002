@@ -8,7 +8,7 @@ class Item < ApplicationRecord
     validates :price
     validates :price
   end
-  validates :image , presence: { message: 'を選択してください'}
+  validates :image , presence: { message: 'を添付してください'}
 
   with_options presence: true, numericality: { other_than: 1 , message: 'を選択してください' } do
     validates :category_id
