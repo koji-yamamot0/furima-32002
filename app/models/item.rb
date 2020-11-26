@@ -8,8 +8,8 @@ class Item < ApplicationRecord
     validates :price
     validates :price
   end
-  validates :text, length: { maximum: 40, message: 'は40文字以下にして下さい' }
-  validates :title, length: { maximum: 1000, message: 'は1000文字以内にしてください' }
+  validates :text, length: { maximum: 1000, message: 'は1000文字以下にして下さい' }
+  validates :title, length: { maximum: 40, message: 'は40文字以内にしてください' }
   validates :image , presence: { message: 'を添付してください'}
 
   with_options presence: true, numericality: { other_than: 1 , message: 'を選択してください' } do
