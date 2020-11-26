@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 // require("turbolinks").start() ターボリンクを読み込まないようにコメントアウト
 require("@rails/activestorage").start()
 require("channels")
+require("../item_price_calc")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
