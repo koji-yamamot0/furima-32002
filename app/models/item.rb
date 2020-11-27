@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_one :purchaser
 
   with_options presence: { message: 'を入力してください' } do
     validates :title
