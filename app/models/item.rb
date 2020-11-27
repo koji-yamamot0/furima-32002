@@ -6,7 +6,6 @@ class Item < ApplicationRecord
     validates :title
     validates :text
     validates :price
-    validates :price
   end
   validates :text, length: { maximum: 1000, message: 'は1000文字以下にして下さい' }
   validates :title, length: { maximum: 40, message: 'は40文字以内にしてください' }
