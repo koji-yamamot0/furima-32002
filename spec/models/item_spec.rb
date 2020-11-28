@@ -71,13 +71,13 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery fee を選択してください"
       end
-      it 'ship_from_location_idが空だと出品できない' do
-        @item.ship_from_location_id = nil
+      it 'prefecture_idが空だと出品できない' do
+        @item.prefecture_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Ship from location can't be blank", "Ship from location を選択してください"
       end
-      it 'ship_from_location_idが1だと出品できない' do
-        @item.ship_from_location_id = 1
+      it 'prefecture_idが1だと出品できない' do
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Ship from location を選択してください"
       end

@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :delivery_fee_id
     validates :item_status_id
-    validates :ship_from_location_id
+    validates :prefecture_id
     validates :shipping_date_id
   end
   validates :price, format: { with: /\A[0-9]\d+\z/,  message: 'は半角数字で入力してください' } ,
@@ -26,7 +26,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :delivery_fee
   belongs_to :item_status
-  belongs_to :ship_from_location
+  belongs_to :prefecture
   belongs_to :shipping_date
 
 end
