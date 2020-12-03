@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? && @item.user == current_user
+    if user_signed_in? && (@item.user != current_user||@item.purchaser.present?)
       redirect_to action: :index
     end
   end
@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :category_id, :text, :price, :delivery_fee_id, :ship_from_location_id, :shipping_date_id, :item_status_id, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:title, :category_id, :text, :price, :delivery_fee_id, :prefecture_id, :shipping_date_id, :item_status_id, :image).merge(user_id: current_user.id)
   end
 
   def item_find_params

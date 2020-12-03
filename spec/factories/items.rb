@@ -6,7 +6,7 @@ FactoryBot.define do
     text {Faker::Lorem.sentence}
     price { 3000 }
     delivery_fee_id { 2 }
-    ship_from_location_id { 2 }
+    prefecture_id { 2 }
     shipping_date_id { 2 }
     item_status_id { 2 }
     association :user
