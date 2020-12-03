@@ -1,15 +1,14 @@
 class PurchaserDestination
   include ActiveModel::Model
-  # attr_accessor :token
-  attr_accessor :user_id, :item_id, :postal, :prefecture_id, :municipalities, :address, :building, :telephone_number
+  attr_accessor :user_id, :item_id, :postal, :prefecture_id, :municipalities, :address, :building, :telephone_number, :token
   
   with_options presence: { message: "を入力してください"} do
     validates :postal
     validates :municipalities
     validates :address
     validates :telephone_number
-    # validates :token
   end
+  validates :token, presence: { message: "カード情報を入力してください"}
 
   with_options presence: true, numericality: { other_than: 1 , message: 'を選択してください' } do
     validates :prefecture_id
