@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
   before_action :item_find_params, only: [:index, :create]
+  before_action :authenticate_user!, only: [:index, :create]
 
   def index
+    if user_signed_in? && (@item.user == current_user||@item.purchaser.present?)
+      redirect_to root_path
+    end
     @purchaser_destination = PurchaserDestination.new
   end
 
