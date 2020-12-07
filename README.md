@@ -30,7 +30,6 @@
 | prefecture_id         | integer    | null: false       |
 | shipping_date_id      | integer    | null: false       |
 | item_status_id        | integer    | null: false       |
-| favorite              | integer    |                   |
 
 ### Association
 - belongs_to :user
