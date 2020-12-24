@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :items do
     member do
       resources :orders, only: [:index, :create]
+      resources :favorites, only: [:create, :destroy]
     end
   end
 end
