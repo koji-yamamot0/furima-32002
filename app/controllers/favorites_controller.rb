@@ -1,9 +1,13 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
   before_action :item_find_params, only: [:create, :destroy]
   before_action :find_favorite_params, only: [:destroy]
-  
+
   def create
-    @favorite = Favorite.create(favorite_params)
+    binding.pry
+    @favorite = Favorite.new(favorite_params)
+    @favorite.save
+    render
   end
 
   def destroy
@@ -13,7 +17,7 @@ class FavoritesController < ApplicationController
   private
   
   def favorite_params
-    params.require(:favorite).merge(user_id: current_user.id, @item.id)
+    params.require(:favorite).merge(user_id: current_user.id, item_id: @item.id)
   end
 
   def item_find_params
