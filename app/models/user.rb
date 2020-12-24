@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :purchasers
-  has_many :favorites, through: :favoroite, dependent: :destroy
 
   with_options presence: true do
     validates :nickname

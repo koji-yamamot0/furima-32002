@@ -2,7 +2,6 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one :purchaser
-  has_many :favorites, through: :favoroite, dependent: :destroy
 
   with_options presence: { message: 'を入力してください' } do
     validates :title
